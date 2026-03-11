@@ -1,0 +1,140 @@
+### ===== USER API CRUD OPERATIONS =====
+
+### Read All Users (Request to protected route)
+GET http://localhost:4000/user-api/users
+Cookie:  token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxva2VzaEBnbWFpbC5jb20iLCJpYXQiOjE3NzI4OTgzMTcsImV4cCI6MTc3MjkwMTkxN30.RnPmnHxhWc93kasMlKPL7VMz9zVhOPF14Jb2YPxTwTM; Path=/; HttpOnly; SameSite=Lax
+### Read User by ID
+GET http://localhost:4000/user-api/users
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxva2VzaEBnbWFpbC5jb20iLCJpYXQiOjE3NzI4Nzc0MDEsImV4cCI6MTc3Mjg3NzQwMX0.yDTKB1Viq7WM_qlZbCxfD2By2IoE51B3mAe43fXK_mM; Path=/; HttpOnly; SameSite=Lax
+### Create a New User
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+     "username":"lokesh",
+     "password":"lokesh",
+     "email":"lokesh@gmail.com",
+     "age":20
+     
+}
+
+### Create Another User
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+     
+     "username":"dwaraka",
+     "password":"dwaraka",
+     "email":"dwaraka@gmail.com",
+     "age":22
+     
+}
+
+### Update a User
+PUT http://localhost:4000/user-api/users/69ac48096d9b31365769b4c7
+Cookie:  token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxva2VzaEBnbWFpbC5jb20iLCJpYXQiOjE3NzI4OTgzMTcsImV4cCI6MTc3MjkwMTkxN30.RnPmnHxhWc93kasMlKPL7VMz9zVhOPF14Jb2YPxTwTM; Path=/; HttpOnly; SameSite=Lax
+Content-Type: application/json
+
+{ 
+     "username":"lokesh",
+     "password":"lokesh",
+     "email":"lokesh@gmail.com",
+     "age":30
+}
+
+### Delete a User
+DELETE http://localhost:4000/user-api/users/69ac45615acfae95ab442bee
+cookie:
+### Deleting all users
+DELETE http://localhost:4000/user-api/users
+cookie:  token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxva2VzaEBnbWFpbC5jb20iLCJpYXQiOjE3NzI4OTgzMTcsImV4cCI6MTc3MjkwMTkxN30.RnPmnHxhWc93kasMlKPL7VMz9zVhOPF14Jb2YPxTwTM; Path=/; HttpOnly; SameSite=Lax
+
+### user login
+POST http://localhost:4000/user-api/auth
+Content-Type: application/json
+
+ {
+     "email":"lokesh@gmail.com",
+     "password":"lokesh"
+ }
+
+# ###
+
+#  GET http://localhost:4000/product-api/products
+
+# ###
+# GET http://localhost:4000/product-api/products/69aba4bf4e57350d9c017b6f
+
+# ###
+# POST  http://localhost:4000/product-api/products
+# Content-Type: application/json
+
+# {
+#     "productId":1,
+#     "productName":"laptop",
+#     "price":15000,
+#     "brand":"HP"
+# }
+
+# ###
+# POST  http://localhost:4000/product-api/products
+# Content-Type: application/json
+
+# {
+#     "productId":2,
+#     "productName":"Mobile",
+#     "price":20000,
+#     "brand":"APPLE"
+# }
+
+# ###
+# POST  http://localhost:4000/product-api/products
+# Content-Type: application/json
+
+# {
+#     "productId":3,
+#     "productName":"TY",
+#     "price":25000,
+#     "brand":"SAMSUNG"
+# }
+
+# ###
+# POST  http://localhost:4000/product-api/products
+# Content-Type: application/json
+
+# {
+#     "productId":4,
+#     "productName":"HeadPhones",
+#     "price":15000,
+#     "brand":"BOAT"
+# }
+
+# ###
+# POST  http://localhost:4000/product-api/products
+# Content-Type: application/json
+
+# {
+#     "productId":5,
+#     "productName":"Monitor",
+#     "price":20000,
+#     "brand":"DELL"
+# }
+
+# ###
+# PUT http://localhost:4000/product-api/products/69aba4bf4e57350d9c017b6f
+# Content-Type: application/json
+
+#  {
+#      "productId":3,
+#     "productName":"TV",
+#     "price":25000,
+#     "brand":"SAMSUNG"
+
+#  }
+# ### 
+# DELETE  http://localhost:4000/product-api/products
+ 
+# ###
+# DELETE  http://localhost:4000/product-api/products/69aaff8cff60a5e459c9df03
+
