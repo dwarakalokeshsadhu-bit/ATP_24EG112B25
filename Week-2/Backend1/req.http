@@ -1,0 +1,142 @@
+### ===== USER API CRUD OPERATIONS =====
+
+### Read All Users
+GET http://localhost:4000/user-api/users
+
+### Read User by ID
+GET http://localhost:4000/user-api/users/1
+
+### Create a New User
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+     "id":1,
+     "name":"Ahmed",
+     "email":"ahmed@gmail.com",
+     "phone":"03001234567"
+}
+
+### Create Another User
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+     "id":2,
+     "name":"Fatima",
+     "email":"fatima@gmail.com",
+     "phone":"03009876543"
+}
+
+### Update a User
+PUT http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+     "id":1,
+     "name":"Ahmed Khan",
+     "email":"ahmed.khan@gmail.com",
+     "phone":"03001111111"
+}
+
+### Delete a User
+DELETE http://localhost:4000/user-api/users/2
+###
+GET http://localhost:4000/produ-api/products
+###
+GET http://localhost:4000/produ-api/products/brand/HP 
+###
+GET http://localhost:4000/produ-api/products/6
+###
+POST http://localhost:4000/produ-api/products
+Content-Type: application/json
+
+{
+    "productId":1,
+    "name":"laptop",
+    "brand":"HP",
+    "price":40000
+}
+###
+POST http://localhost:4000/produ-api/products
+Content-Type: application/json
+
+{
+    "productId":2,
+    "name":"laptop",
+    "brand":"MAC",
+    "price":65000
+}
+###
+POST http://localhost:4000/produ-api/products
+Content-Type: application/json
+
+{
+    "productId":3,
+    "name":"Mobile",
+    "brand":"SAMSUNG",
+    "price":40000
+}
+###
+POST http://localhost:4000/produ-api/products
+Content-Type: application/json
+
+{
+    "productId":4,
+    "name":"HeadPhones",
+    "brand":"BOAT",
+    "price":4000
+}
+###
+POST http://localhost:4000/produ-api/products
+Content-Type: application/json
+
+{
+    "productId":5,
+    "name":"laptop",
+    "brand":"DELL",
+    "price":80000
+}
+###
+POST http://localhost:4000/produ-api/products
+Content-Type: application/json
+
+{
+    "productId":6,
+    "name":"mobile",
+    "brand":"REDMI",
+    "price":20000
+}
+###
+POST http://localhost:4000/produ-api/products
+Content-Type: application/json
+
+{
+    "productId":7,
+    "name":"mobile",
+    "brand":"APPLE",
+    "price":60000
+}
+###
+POST http://localhost:4000/produ-api/products
+Content-Type: application/json
+
+{
+    "productId":8,
+    "name":"laptop",
+    "brand":"ASUS",
+    "price":45000
+}
+### Can update the resources
+PUT http://localhost:4000/produ-api/products
+Content-Type: application/json 
+
+{
+    "productId":8,
+    "name":"laptop",
+    "brand":"MAC",
+    "price":100000
+    
+}
+### used for deleting products using id 
+DELETE http://localhost:4000/produ-api/products/1
