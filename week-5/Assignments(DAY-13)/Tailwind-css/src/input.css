@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&family=Roboto+Slab:wght@100..900&family=Sanchez:ital@0;1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sanchez: 'Sanchez', sans-serif; 
+}
