@@ -63,7 +63,7 @@ function App() {
 return (
   <div>
     <Navbar/>
-    <div className="grid md:grid-cols-4 gap-3 m-20 min-h-screen gap-6">
+    <div className="grid md:grid-cols-4  m-20 min-h-screen gap-6">
        {users.map(Userobj=><UserList user={Userobj} key={Userobj.email}/>)}
     </div>
     <Footer />
