@@ -36,7 +36,7 @@ const modifiedEmp = async (modifiedObj) => {
     setLoading(true);
 
     const res = await axios.put(
-      `http://localhost:4000/emp-api/employee/${state._id}`,
+      `https://emp-mang-app.onrender.com/emp-api/employees/${state._id}`,
       modifiedObj
     );
 

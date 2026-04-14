@@ -20,7 +20,7 @@ const {counter,changeCounter } = useContext(counterContextObj)
     try {
       setLoading(true)
 
-      let resObj = await fetch('http://localhost:4000/emp-api/employee', {
+      let resObj = await fetch('https://emp-mang-app.onrender.com/emp-api/employees', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

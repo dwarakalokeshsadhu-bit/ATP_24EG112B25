@@ -9,7 +9,7 @@ config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin:['http://localhost:5173']
+  origin:['http://localhost:5173',"https://emp-mang-j2wnat7qn-vibe11.vercel.app"]
 }))
 app.use("/emp-api", empApp);
 
