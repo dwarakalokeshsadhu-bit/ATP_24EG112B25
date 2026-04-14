@@ -36,7 +36,7 @@ const modifiedEmp = async (modifiedObj) => {
     setLoading(true);
 
     const res = await axios.put(
-      `https://emp-mang-app.onrender.com/emp-api/employees/${state._id}`,
+      `${import.meta.env.VITE_API_URL}/emp-api/employees/${state._id}`,
       modifiedObj
     );
 
