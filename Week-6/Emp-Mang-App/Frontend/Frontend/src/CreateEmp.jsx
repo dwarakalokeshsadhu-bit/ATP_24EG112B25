@@ -20,7 +20,7 @@ const {counter,changeCounter } = useContext(counterContextObj)
     try {
       setLoading(true)
 
-      let resObj = await fetch('${import.meta.env.VITE_API_URL}/emp-api/employees', {
+      let resObj = await fetch(`${import.meta.env.VITE_API_URL}/emp-api/employees`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
