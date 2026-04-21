@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { config } from "dotenv";
-config();
+
 const {verify} = jwt;
 export const verifyToken = ( ...allowedRoles)=>{
     return (req,res,next)=>{
@@ -12,7 +12,7 @@ export const verifyToken = ( ...allowedRoles)=>{
     }
     // there is a token and we should verify it
     try{
-        const decodedToken = verify(token,process.env.JWT_SECRET_KEY);
+        const decodedToken = verify(token,process.env.JWT_SECRET);
         
         // check the role is same as the decoded token role
         if(!allowedRoles.includes(decodedToken.role)){
