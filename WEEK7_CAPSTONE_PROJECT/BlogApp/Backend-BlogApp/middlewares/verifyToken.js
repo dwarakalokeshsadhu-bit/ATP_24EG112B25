@@ -12,7 +12,7 @@ export const verifyToken = ( ...allowedRoles)=>{
     }
     // there is a token and we should verify it
     try{
-        const decodedToken = verify(token,process.env.KEY);
+        const decodedToken = verify(token,process.env.JWT_SECRET_KEY);
         
         // check the role is same as the decoded token role
         if(!allowedRoles.includes(decodedToken.role)){
