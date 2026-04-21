@@ -91,7 +91,7 @@ commonApp.post('/login', async (req, res) => {
             lastName: user.lastName,
             profileImageUrl: user.profileImageUrl
         },
-        process.env.KEY,
+        process.env.JWT_SECRET,
         { expiresIn: "1h" }
     )
 
