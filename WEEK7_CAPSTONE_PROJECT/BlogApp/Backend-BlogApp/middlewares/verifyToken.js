@@ -23,6 +23,7 @@ export const verifyToken = ( ...allowedRoles)=>{
         next();
     }
     catch(err){
+         console.log("JWT verify error:", err.message)
         res.status(401).json({message:"Session expired : Re-Login"})
     }
     }
