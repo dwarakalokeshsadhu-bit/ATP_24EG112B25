@@ -1,0 +1,30 @@
+###
+POST http://localhost:5000/emp-api/emp
+Content-Type: application/json
+
+{
+    "name":"emp3",
+    "email":"emp3@gmail.com",
+    "mobile":9898989898,
+    "designation":"HR",
+    "companyName":"Suntek"
+}
+###
+GET http://localhost:5000/emp-api/emp
+
+###
+PUT http://localhost:5000/emp-api/emp/69ca251926c38c8f2163c7df
+Content-Type: application/json
+
+{
+    "name":"emp2",
+    "email":"emp2@gmail.com",
+    "mobile":9898989999,
+    "designation":"Manager",
+    "companyName":"Suntek"
+}
+
+###
+DELETE http://localhost:5000/emp-api/emp/69cab0b9a9220135c685732b
+
+
