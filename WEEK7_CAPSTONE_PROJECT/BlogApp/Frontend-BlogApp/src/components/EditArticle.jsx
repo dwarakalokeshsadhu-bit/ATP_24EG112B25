@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -17,7 +17,6 @@ import {
 function EditArticle() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { id } = useParams();
 
   const article = location.state;
 
@@ -35,7 +34,7 @@ function EditArticle() {
     setValue("title", article.title);
     setValue("category", article.category);
     setValue("content", article.content);
-  }, [article]);
+  }, [article, setValue]);
 
   const updateArticle = async (modifiedArticle) => {
     console.log(modifiedArticle);

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../stores/authStore";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 import {
   articlePageWrapper,
@@ -62,7 +63,7 @@ function ArticleByID() {
     };
 
     getArticle();
-  }, [id]);
+  }, [article, id]);
 
   const formatDate = (date) => {
     return new Date(date).toLocaleString("en-IN", {

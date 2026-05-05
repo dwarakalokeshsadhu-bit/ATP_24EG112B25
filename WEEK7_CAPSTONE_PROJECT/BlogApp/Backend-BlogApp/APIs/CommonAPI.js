@@ -18,7 +18,7 @@ commonApp.post('/users', upload.single("profileImageUrl"), async (req, res, next
     let cloudinaryResult;
 
     try {
-        // get tthe details of the user
+        // get the details of the user
         const newUser = req.body;
 
         // check for the roles : only author and user not admin
@@ -26,24 +26,18 @@ commonApp.post('/users', upload.single("profileImageUrl"), async (req, res, next
         if (!allowedRoles.includes(newUser.role))
             return res.status(400).json({ message: "invalid role" })
 
-        /// upload image to cloudinary from memoryStorage
+        // upload image to cloudinary from memoryStorage
         if (req.file) {
-    try {
-        const cloudinaryResult = await uploadToCloudinary(req.file.buffer);
-        newUser.profileImageUrl = cloudinaryResult?.secure_url;
-    } catch (err) {
-        newUser.profileImageUrl = "";
-    }
-} else {
-    newUser.profileImageUrl = "";
-}
+            try {
+                cloudinaryResult = await uploadToCloudinary(req.file.buffer);
+            } catch (err) {
+                cloudinaryResult = null;
+            }
+        }
 
-        // add CDN link of image to new userObj
         newUser.profileImageUrl = cloudinaryResult?.secure_url;
 
-        // RUN VALIDATORS MANUALLY
-
-        // replace the password eith hashed password
+        // replace the password with hashed password
         newUser.password = await hash(newUser.password, 12)
 
         // create document

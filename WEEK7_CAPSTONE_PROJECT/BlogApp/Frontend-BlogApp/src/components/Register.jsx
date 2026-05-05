@@ -185,13 +185,15 @@ const navigate = useNavigate();
             className={inputClass}
             accept="image/png, image/jpeg" 
             {...register("profileImageUrl",{
-              fileType:(files)=>{
-                if(!files?.[0])return true;
-                return ["image/png","image/jpeg"].includes(files[0].type)|| "ONly png/jpeg files are accepted"
-              },
-              fileSize:(files)=>{
-                if(!files?.[0])return true;
-                return files[0].size <= 2*1024*1024 || "Max size 2mb"
+              validate: {
+                fileType:(files)=>{
+                  if(!files?.[0])return true;
+                  return ["image/png","image/jpeg"].includes(files[0].type)|| "Only png/jpeg files are accepted"
+                },
+                fileSize:(files)=>{
+                  if(!files?.[0])return true;
+                  return files[0].size <= 2*1024*1024 || "Max size 2mb"
+                }
               }
             })} 
             onChange={(event)=>{
@@ -213,8 +215,8 @@ const navigate = useNavigate();
           </div>
 
           {/* SUBMIT */}
-          <button type="submit" className={submitBtn}>
-            Create Account
+          <button type="submit" className={submitBtn} disabled={loading}>
+            {loading ? "Creating..." : "Create Account"}
           </button>
         </form>
 
