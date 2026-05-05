@@ -12,15 +12,13 @@ import cors from "cors"
 config();
 const app = exp()
 
-// app.use(cors({
-//   origin: process.env.FRONTEND_URL,//"https://blogapp-atp-capstone-24eg112c38.vercel.app",
-//   credentials: true,
-//   //methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//   //allowedHeaders: ["Content-Type", "Authorization"]
-// }));
 const allowedOrigins = [
   "http://localhost:5173",
-  process.env.FRONTEND_URL
+  "https://blogappfrontend-nine.vercel.app",
+  ...(process.env.FRONTEND_URL || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean)
 ];
 
 app.use(cors({
