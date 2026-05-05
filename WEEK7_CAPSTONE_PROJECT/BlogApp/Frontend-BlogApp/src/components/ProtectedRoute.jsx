@@ -3,9 +3,9 @@ import { Navigate } from "react-router";
 
 function ProtectedRoute({ children, allowedRoles }) {
   //get user login status from store
-  const { loading, currentUser, isAuthenticated} = useAuth();
+  const { loading, currentUser, isAuthenticated, authChecked} = useAuth();
   //loading state
-  if (loading) {
+  if (loading || !authChecked) {
     return <p>Loading...</p>;
   }
   //if user not loggedin

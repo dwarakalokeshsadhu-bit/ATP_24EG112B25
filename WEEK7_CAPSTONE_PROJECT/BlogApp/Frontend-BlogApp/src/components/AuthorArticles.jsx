@@ -19,6 +19,7 @@ import {
 function AuthorArticles() {
   const navigate = useNavigate();
   const user = useAuth((state) => state.currentUser);
+  const isAuthenticated = useAuth((state) => state.isAuthenticated);
 
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ function AuthorArticles() {
   console.log("user in author profile",user)
   
   useEffect(() => {
-    if (!user) return;
+    if (!isAuthenticated || !user) return;
 
     const getAuthorArticles = async () => {
       
@@ -41,14 +42,14 @@ function AuthorArticles() {
         setArticles(res.data?.payload);
       } catch (err) {
         console.log(err);
-        setError(err.response?.data?.error || "Failed to fetch articles");
+        setError(err.response?.data?.error || err.response?.data?.message || "Failed to fetch articles");
       } finally {
         setLoading(false);
       }
     };
 
     getAuthorArticles();
-  }, [user]);
+  }, [user, isAuthenticated]);
 
   const openArticle = (article) => {
     navigate(`/article/${article._id}`, {

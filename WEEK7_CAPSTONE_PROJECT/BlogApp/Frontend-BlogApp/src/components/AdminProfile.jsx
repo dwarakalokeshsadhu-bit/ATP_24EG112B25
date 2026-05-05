@@ -6,6 +6,7 @@ import { articleTitle } from "../styles/common.js";
 
 function AdminProfile() {
   const currentUser = useAuth((state) => state.currentUser);
+  const isAuthenticated = useAuth((state) => state.isAuthenticated);
   const logout = useAuth((state) => state.logout);
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ function AdminProfile() {
   const handleToggleStatus = async (userId, currentStatus) => {
     try {
       await axios.patch(
-        "${import.meta.env.VITE_API_URL}/admin-api/users",
+        `${import.meta.env.VITE_API_URL}/admin-api/users`,
         {
           userId: userId,
           isUserActive: !currentStatus,
@@ -40,6 +41,8 @@ function AdminProfile() {
   };
 
   useEffect(() => {
+    if (!isAuthenticated || !currentUser) return;
+
     const getUsers = async () => {
       setLoading(true);
       try {
@@ -52,14 +55,14 @@ function AdminProfile() {
           setUsers(res.data.payload);
         }
       } catch (err) {
-        setError(err.response?.data?.error || "Something went wrong");
+        setError(err.response?.data?.error || err.response?.data?.message || "Something went wrong");
       } finally {
         setLoading(false);
       }
     };
 
     getUsers();
-  }, []);
+  }, [currentUser, isAuthenticated]);
 
   return (
     <div className="min-h-screen bg-gray-50 px-4 sm:px-6 py-6 sm:py-10">

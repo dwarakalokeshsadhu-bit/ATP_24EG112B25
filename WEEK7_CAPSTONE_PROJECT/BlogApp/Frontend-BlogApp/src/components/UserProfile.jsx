@@ -18,6 +18,7 @@ import {
 function UserProfile() {
   const logout = useAuth((state) => state.logout);
   const currentUser = useAuth((state) => state.currentUser);
+  const isAuthenticated = useAuth((state) => state.isAuthenticated);
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -25,6 +26,8 @@ function UserProfile() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
+    if (!isAuthenticated || !currentUser) return;
+
     const getArticles = async () => {
       setLoading(true);
       try {
@@ -37,14 +40,14 @@ function UserProfile() {
           setArticles(res.data.payload);
         }
       } catch (err) {
-        setError(err.response?.data?.error || "Something went wrong");
+        setError(err.response?.data?.error || err.response?.data?.message || "Something went wrong");
       } finally {
         setLoading(false);
       }
     };
 
     getArticles();
-  }, []);
+  }, [currentUser, isAuthenticated]);
 
   const formatDateIST = (date) => {
     return new Date(date).toLocaleString("en-IN", {

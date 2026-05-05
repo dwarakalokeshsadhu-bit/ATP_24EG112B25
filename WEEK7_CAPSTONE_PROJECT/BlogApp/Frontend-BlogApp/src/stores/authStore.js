@@ -3,8 +3,9 @@ import axios from "axios";
 
 export const useAuth = create((set) => ({
   currentUser: null,
-  loading: false,
+  loading: true,
   isAuthenticated: false,
+  authChecked: false,
   error: null,
   login: async (userCred) => {
     // const { role, ...userCredObj } = userCredWithRole;
@@ -19,6 +20,7 @@ export const useAuth = create((set) => ({
           currentUser: res.data?.payload,
           loading: false,
           isAuthenticated: true,
+          authChecked: true,
           error: null,
         });
       }
@@ -27,9 +29,10 @@ export const useAuth = create((set) => ({
       set({
         loading: false,
         isAuthenticated: false,
+        authChecked: true,
         currentUser: null,
         //error: err,
-        error: err.response?.data?.error || "Login failed",
+        error: err.response?.data?.error || err.response?.data?.message || "Login failed",
       });
     }
   },
@@ -45,14 +48,16 @@ export const useAuth = create((set) => ({
           isAuthenticated: false,
           error: null,
           loading: false,
+          authChecked: true,
         });
       }
     } catch (err) {
       set({
         loading: false,
         isAuthenticated: false,
+        authChecked: true,
         currentUser: null,
-        error: err.response?.data?.error || "Logout failed",
+        error: err.response?.data?.error || err.response?.data?.message || "Logout failed",
       });
     }
   },
@@ -66,6 +71,7 @@ export const useAuth = create((set) => ({
         currentUser: res.data.payload,
         isAuthenticated: true,
         loading: false,
+        authChecked: true,
       });
     } catch (err) {
       // If user is not logged in → do nothing
@@ -74,13 +80,14 @@ export const useAuth = create((set) => ({
           currentUser: null,
           isAuthenticated: false,
           loading: false,
+          authChecked: true,
         });
         return;
       }
 
       // other errors
       console.error("Auth check failed:", err);
-      set({ loading: false });
+      set({ loading: false, authChecked: true });
     }
   },
 }));
