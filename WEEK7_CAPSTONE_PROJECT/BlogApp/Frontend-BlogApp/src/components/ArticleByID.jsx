@@ -50,13 +50,12 @@ function ArticleByID() {
 
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/user-api/article/${id}`,
-          { withCredentials: true }
+          `${import.meta.env.VITE_API_URL}/auth/articles/${id}`
         );
 
         setArticle(res.data.payload);
       } catch (err) {
-        setError(err.response?.data?.error);
+        setError(err.response?.data?.error || err.response?.data?.message || "Failed to fetch article");
       } finally {
         setLoading(false);
       }
@@ -144,7 +143,9 @@ function ArticleByID() {
         </h1>
 
         <div className={`${articleAuthorRow} flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm`}>
-          <div className={authorInfo}>✍ {user.role}</div>
+          <div className={authorInfo}>
+            {article.author?.firstName || user?.firstName || "Author"}
+          </div>
           <div>{formatDate(article.createdAt)}</div>
         </div>
       </div>

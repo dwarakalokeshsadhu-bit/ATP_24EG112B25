@@ -1,4 +1,4 @@
-import React from "react";
+import { NavLink } from "react-router";
 
 function Home() {
   return (
@@ -18,13 +18,19 @@ function Home() {
 
         <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
 
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+          <NavLink
+            to="/articles"
+            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+          >
             Explore Articles
-          </button>
+          </NavLink>
 
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+          <NavLink
+            to="/register"
+            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+          >
             Learn More
-          </button>
+          </NavLink>
 
         </div>
 

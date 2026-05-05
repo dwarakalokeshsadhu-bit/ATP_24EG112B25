@@ -75,6 +75,18 @@ function Header() {
             </NavLink>
           </li>
 
+          <li>
+            <NavLink
+              to="/articles"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                isActive ? navLinkActiveClass : navLinkClass
+              }
+            >
+              Articles
+            </NavLink>
+          </li>
+
           {/* NOT LOGGED IN */}
           {!isAuthenticated && (
             <>

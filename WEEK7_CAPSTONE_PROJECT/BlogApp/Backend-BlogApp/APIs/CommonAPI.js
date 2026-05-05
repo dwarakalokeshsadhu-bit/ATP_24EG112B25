@@ -1,9 +1,9 @@
 // create mini applications
 import exp from 'express'
 import {UserModel} from '../models/UserModel.js'
+import {ArticleModel} from '../models/ArticleModel.js'
 import {hash,compare} from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { userApp } from './UserAPI.js'
 import { verifyToken } from '../middlewares/verifyToken.js'
 
 export const commonApp = exp.Router()
@@ -11,7 +11,37 @@ import {upload} from '../config/multer.js'
 import {uploadToCloudinary} from '../config/cloudinaryUpload.js'
 import cloudinary from '../config/cloudinary.js'
 
-const {sign}=jwt
+const {sign, verify}=jwt
+
+// public route to read active articles
+commonApp.get('/articles', async (req, res, next) => {
+    try {
+        const articlesList = await ArticleModel.find({ isArticleActive: true })
+            .populate("author", "firstName lastName email profileImageUrl role")
+            .populate("comment.user", "firstName lastName email profileImageUrl");
+
+        res.status(200).json({ message: "All available Articles", payload: articlesList });
+    } catch (err) {
+        next(err);
+    }
+});
+
+// public route to read one active article
+commonApp.get('/articles/:id', async (req, res, next) => {
+    try {
+        const articleDoc = await ArticleModel.findOne({ _id: req.params.id, isArticleActive: true })
+            .populate("author", "firstName lastName email profileImageUrl role")
+            .populate("comment.user", "firstName lastName email profileImageUrl");
+
+        if (!articleDoc) {
+            return res.status(404).json({ message: "Article not found" });
+        }
+
+        res.status(200).json({ message: "Article found", payload: articleDoc });
+    } catch (err) {
+        next(err);
+    }
+});
 
 // Route to register
 commonApp.post('/users', upload.single("profileImageUrl"), async (req, res, next) => {
@@ -115,11 +145,25 @@ commonApp.get('/logout', (req, res) => {
 })
 
 // Page for refresh
-commonApp.get("/check-auth", verifyToken("USER", "AUTHOR", "ADMIN"), (req, res) => {
-    res.status(200).json({
-        message: "authenticated",
-        payload: req.user,
-    });
+commonApp.get("/check-auth", (req, res) => {
+    const token = req.cookies?.token;
+
+    if (!token) {
+        return res.status(200).json({
+            message: "guest",
+            payload: null,
+        });
+    }
+
+    try {
+        const decodedToken = verify(token, process.env.JWT_SECRET);
+        res.status(200).json({
+            message: "authenticated",
+            payload: decodedToken,
+        });
+    } catch (err) {
+        res.status(401).json({ message: "Session expired : Re-Login" });
+    }
 });
 
 // change the password
