@@ -7,6 +7,11 @@ Create basic static webpages using HTML tags, links, lists, headings, paragraphs
 
 ## Assignment Details
 
+Files:
+
+- `Website.html`: Basic website page.
+- `Form.html`: HTML form page.
+
 ## Concepts Practiced
 
 - HTML boilerplate structure

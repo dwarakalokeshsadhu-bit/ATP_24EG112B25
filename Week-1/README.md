@@ -10,17 +10,17 @@ Practice basic JavaScript programming logic using variables, conditions, loops, 
 
 ### Day 1 Problems
 
-- `Question1.js`: Finds the biggest number among two numbers.
-- `Question2.js`: Finds the biggest number among three numbers.
-- `Question3.js`: Calculates the sum of marks in an array.
-- `Question4.js`: Finds the smallest element in a marks array.
+- `BigTwo.js`: Finds the biggest number among two numbers.
+- `BigThre.js`: Finds the biggest number among three numbers.
+- `Sum.js`: Calculates the sum of marks in an array.
+- `Smallest.js`: Finds the smallest element in a marks array.
 
 ### Day 2 Problems
 
-- `Question5.js`: Creates a function that receives three numbers and returns the largest number.
-- `Question6.js`: Creates a function that receives an array and returns the sum of its elements.
-- `Question7.js`: Searches for an element in an array and returns its index or displays "Not found".
-- `Question8.js`: Performs operations on an employees array:
+- `LargetOfThree.js`: Creates a function that receives three numbers and returns the largest number.
+- `SumArray.js`: Creates a function that receives an array and returns the sum of its elements.
+- `Searching.js`: Searches for an element in an array and returns its index or displays "Not found".
+- `OperationsArray.js`: Performs operations on an employees array:
   - Insert a new employee at the second position.
   - Remove an employee with the name `Kiran`.
   - Change the last mark of `Sneha` from `95` to `75`.

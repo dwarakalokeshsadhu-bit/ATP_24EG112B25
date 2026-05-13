@@ -7,11 +7,41 @@ Build React applications using forms, validation, routing, state management, and
 
 ## Work Completed
 
+### Product Form App
+
+Location: `Product`
+
+- `src/App.jsx`
+- `src/components/FormDemo.jsx`
+
 - Created a React app using Vite.
 - Used component-based structure.
 - Created a user form.
 - Used `react-hook-form` for form handling.
 
+### MERN Mini App
+
+Location: `mern-mini-app`
+
+Backend files:
+
+- `BackendEmp/server.js`
+- `BackendEmp/APIs/EmployeeAPI.js`
+- `BackendEmp/models/EmployeeModel.js`
+
+Frontend files:
+
+- `frontend/src/App.jsx`
+- `frontend/src/components/RootLayout.jsx`
+- `frontend/src/components/Home.jsx`
+- `frontend/src/components/Header.jsx`
+- `frontend/src/components/Employee.jsx`
+- `frontend/src/components/CreateEmp.jsx`
+- `frontend/src/components/EditEmployee.jsx`
+- `frontend/src/components/ListOfEmps.jsx`
+- `frontend/src/components/Test.jsx`
+- `frontend/src/context/ContextProvider.jsx`
+- `frontend/src/store/CounterStore.js`
 
 Backend features:
 

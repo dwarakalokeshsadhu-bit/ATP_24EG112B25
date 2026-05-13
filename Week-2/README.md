@@ -9,7 +9,7 @@ Practice modern JavaScript features, asynchronous behavior, modular code organiz
 
 ### Array Method Problems
 
-File: `Day3_Problems.js`
+File: `TemperatureAnal.js`
 
 Assignments include:
 
@@ -17,6 +17,9 @@ Assignments include:
 - Online course name processor
 - Student marks list
 
+### Copy Type Problems
+
+File: `CopyTypes_problems.js`
 
 Assignments include:
 
@@ -25,19 +28,53 @@ Assignments include:
 - Observing shallow copy behavior with nested objects
 - Creating deep copies using `structuredClone`
 
+### Class Problems
+
+File: `Class_problems.js`
+
+Assignments include:
+
+- Library book management system
+- Book availability update
+- Long book count
+- Available book listing
+
+### Async Problems
+
+File: `ExamPortal.js`
 
 Assignments include:
 
 - Exam portal simulator using delayed messages
 - OTP countdown simulator
 
+### Module Assignment
+
+Files:
+
+- `Validator.js`
+- `Task.js`
+- `product.js`
+- `cart.js`
+- `discount.js`
+- `payment.js`
+- `app.js`
+
+Assignments include:
+
+- Task management module validation
+- E-commerce product, cart, discount, and payment modules
 
 
 ### Backend Assignment
 
 Location: `Backend1`
 
-File: `server.js`
+Files:
+
+- `server.js`
+- `APIs/UsersAPI.js`
+- `APIs/productAPI.js`
 
 This assignment creates a basic Express server.
 
